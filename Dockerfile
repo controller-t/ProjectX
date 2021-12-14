@@ -1,5 +1,6 @@
-FROM ubuntu:18.04
-RUN apt update
-RUN apt install -y apache2
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+FROM ulsmith/rpi-raspbian-apache-php
+# RUN rm /var/www/html/index.html
+# ADD ./ /var/www/html
+RUN chmod -R 0755 /var/www/html
 EXPOSE 80
+CMD ["/run.sh"]
